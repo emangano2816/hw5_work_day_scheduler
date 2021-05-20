@@ -23,7 +23,6 @@ $(document).ready(function() {
             console.log('before');
             eventEl[i].classList.add('future');
         }      
-
     })
 
 

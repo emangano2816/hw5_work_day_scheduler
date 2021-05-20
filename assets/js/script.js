@@ -2,10 +2,11 @@ $(document).ready(function() {
     //Setting date to current date
     $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
+    clearLocalStorage();
+
     let hourEl = $('.hour');
     let eventEl = $('.textarea');
     let btnEl = $('.saveBtn');
-    let eventArray = [];
     
     hourEl.each(function (i) {
         let currentHour = moment().format('hA');
@@ -36,14 +37,30 @@ $(document).ready(function() {
         let eventSaved = $(this).siblings().last().val();
         let timeSaved = $(this).siblings().first().attr('id');
         
-        eventArray.push(eventSaved + " - " + timeSaved);
-
-        console.log(eventArray);
+        localStorage.setItem(timeSaved, eventSaved);
+        localStorage.setItem("date", moment().format('YYYY-MM-DD'));      
     })
 
+    function renderLocalStorage() {
+        hourEl.each(function() {
+            let id = $(this).attr('id');
 
+            if (localStorage.getItem(id) !== null) {
+                ($('#'+ id).siblings().first().val(localStorage.getItem(id)));
+            }
+        })
+    }
 
-
-
+    renderLocalStorage();
 })
+
+    function clearLocalStorage() {
+        let storedDate=localStorage.getItem("date");
+        let currentDate=moment().format('YYYY-MM-DD')
+        if (storedDate !== null) {
+            if(moment(currentDate).isAfter(storedDate,'day')) {
+                localStorage.clear();
+            }
+        }
+    }
 

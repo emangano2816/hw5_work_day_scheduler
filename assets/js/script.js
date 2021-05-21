@@ -1,39 +1,35 @@
 $(document).ready(function() {
-    //Setting date to current date
-    $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
-    clearLocalStorage();
-
+    //Declaring variables
     let hourEl = $('.hour');
     let eventEl = $('.textarea');
     let btnEl = $('.saveBtn');
+
+    //Setting date to current date
+    $("#currentDay").text(moment().format("dddd, MMMM Do"));
+
+    //If new day, clearing local storage
+    clearLocalStorage();
     
+    //Updating class (past, current, future) for each row
     hourEl.each(function (i) {
         let currentHour = moment().format('hA');
         let rowHour = moment(this.innerText,'hA');
 
-        console.log(currentHour);
-        console.log(rowHour);
-        
-
         if (moment(currentHour,'hA').isAfter(rowHour,'hA')){
-            console.log('after');
             eventEl[i].classList.add('past');
         } else if (moment(currentHour,'hA').isSame(rowHour,'hA')) {
-            console.log('same');
             eventEl[i].classList.add('present');
         } else {
-            console.log('before');
             eventEl[i].classList.add('future');
         }      
     });
 
+    //Click funtion for save buttons
     btnEl.click(function(event) {
         event.preventDefault();
         event.stopPropagation();
 
-        console.log(event.target);
-        console.log ($(this).siblings().last().val());
         let eventSaved = $(this).siblings().last().val();
         let timeSaved = $(this).siblings().first().attr('id');
         
@@ -41,6 +37,7 @@ $(document).ready(function() {
         localStorage.setItem("date", moment().format('YYYY-MM-DD'));      
     })
 
+    //Render local storage to page, if it exists
     function renderLocalStorage() {
         hourEl.each(function() {
             let id = $(this).attr('id');
@@ -52,8 +49,8 @@ $(document).ready(function() {
     }
 
     renderLocalStorage();
-})
 
+    //Clears local storage if the current date is after the stored date
     function clearLocalStorage() {
         let storedDate=localStorage.getItem("date");
         let currentDate=moment().format('YYYY-MM-DD')
@@ -63,4 +60,4 @@ $(document).ready(function() {
             }
         }
     }
-
+})

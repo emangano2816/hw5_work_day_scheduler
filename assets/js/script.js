@@ -37,11 +37,19 @@ $(document).ready(function() {
         localStorage.setItem(timeSaved, eventSaved);
         localStorage.setItem("date", moment().format('YYYY-MM-DD'));
         
+        //displays message that event has been saved to local storage
         saveToLs.text('Saved to local storage.');
         saveToLs.addClass("showMessage");
         setTimeout(function() {
             saveToLs.removeClass("showMessage");
             }, 2000);
+
+        //scrolls page to top so user sees message about save to local storage
+        window.scroll ({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     });
 
     //Render local storage to page, if it exists

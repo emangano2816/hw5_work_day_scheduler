@@ -4,6 +4,7 @@ $(document).ready(function() {
     let hourEl = $('.hour');
     let eventEl = $('.textarea');
     let btnEl = $('.saveBtn');
+    let saveToLs = $('#savedToLs');
 
     //Setting date to current date
     $("#currentDay").text(moment().format("dddd, MMMM Do"));
@@ -32,10 +33,16 @@ $(document).ready(function() {
 
         let eventSaved = $(this).siblings().last().val();
         let timeSaved = $(this).siblings().first().attr('id');
-        
+          
         localStorage.setItem(timeSaved, eventSaved);
-        localStorage.setItem("date", moment().format('YYYY-MM-DD'));      
-    })
+        localStorage.setItem("date", moment().format('YYYY-MM-DD'));
+        
+        saveToLs.text('Saved to local storage.');
+        saveToLs.addClass("showMessage");
+        setTimeout(function() {
+            saveToLs.removeClass("showMessage");
+            }, 2000);
+    });
 
     //Render local storage to page, if it exists
     function renderLocalStorage() {

@@ -21,7 +21,28 @@ body {
     border-radius: 0;
     border-bottom: 10px solid black;
   }
+
+ 
+  #savedToLs {
+    padding: 0.4em;
+    margin: 0 auto 20px auto;
+    position: relative;
+    text-align: center;
+  }
+
+  .hideMessage {
+    visibility: hidden;
+  }
+
+  .showMessage {
+    visibility: visible;
+    background:linear-gradient(orange,yellow);
+    font-weight:bold;
+  }
+
   
+
+ 
   .time-block {
     text-align: center;
     border-radius: 15px;

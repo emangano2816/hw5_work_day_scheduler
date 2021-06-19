@@ -16,5 +16,5 @@ When the application is opened, the current date is displayed at the top.  As th
 ## Application Functionality
 ![work_day_scheduler.](./assets/images/hw5_work_day_scheduler_demo.gif)
 
-## Contributor(s)
-https://github.com/emangano2816
+## Contact Information
+emangano2816@gmail.com

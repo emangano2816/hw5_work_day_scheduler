@@ -8,10 +8,11 @@ When the application is opened, the current date is displayed at the top.  As th
 
 ## Technologies Used
 1. HTML
-2. CSS (custom, bootstrap)
-3. Javascript
-4. jQuery
-5. Moment.js
+2. CSS
+3. Boostrap CSS
+4. Javascript
+5. jQuery
+6. Moment.js
 
 ## Application Functionality
 ![work_day_scheduler.](./assets/images/hw5_work_day_scheduler_demo.gif)

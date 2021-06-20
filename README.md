@@ -10,7 +10,7 @@ When the application is opened, the current date is displayed at the top.  As th
 1. HTML
 2. CSS
 3. Boostrap CSS
-4. Javascript
+4. JavaScript
 5. jQuery
 6. Moment.js
 
@@ -19,3 +19,6 @@ When the application is opened, the current date is displayed at the top.  As th
 
 ## Contact Information
 emangano2816@gmail.com
+
+## License
+This project is licensed under the terms of the MIT license.
